@@ -113,8 +113,8 @@ function rotate() {
 function reset() {
   imgX = 125;
   imgY = 160;
-  imgWidth = 300;
-  imgHeight = 390;
+  imgWidth = 150;
+  imgHeight = 150;
   scale = 1;
   rotation = 0;
   draw();
