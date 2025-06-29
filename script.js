@@ -161,3 +161,34 @@ function updateWhatsAppLink() {
 }
 
 updateWhatsAppLink(); // panggil sekali saat semua siap
+
+// Tambahan: dukungan layar sentuh untuk drag gambar di canvas
+let lastTouchX = 0;
+let lastTouchY = 0;
+
+canvas.addEventListener('touchstart', function(e) {
+  if (img) {
+    const rect = canvas.getBoundingClientRect();
+    const touch = e.touches[0];
+    lastTouchX = touch.clientX - rect.left;
+    lastTouchY = touch.clientY - rect.top;
+    isDragging = true;
+    offsetX = lastTouchX - imgX;
+    offsetY = lastTouchY - imgY;
+  }
+});
+
+canvas.addEventListener('touchmove', function(e) {
+  if (isDragging && img) {
+    e.preventDefault();
+    const rect = canvas.getBoundingClientRect();
+    const touch = e.touches[0];
+    imgX = touch.clientX - rect.left - offsetX;
+    imgY = touch.clientY - rect.top - offsetY;
+    draw();
+  }
+}, { passive: false });
+
+canvas.addEventListener('touchend', function(e) {
+  isDragging = false;
+});
