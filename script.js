@@ -88,6 +88,35 @@ canvas.addEventListener('mousemove', function (e) {
 canvas.addEventListener('mouseup', () => isDragging = false);
 canvas.addEventListener('mouseleave', () => isDragging = false);
 
+// 👆 Tambahan: dukungan layar sentuh untuk HP
+canvas.addEventListener('touchstart', function(e) {
+  if (!img) return;
+  const touch = e.touches[0];
+  const rect = canvas.getBoundingClientRect();
+  offsetX = touch.clientX - rect.left - imgX;
+  offsetY = touch.clientY - rect.top - imgY;
+  isDragging = true;
+});
+
+canvas.addEventListener('touchmove', function(e) {
+  if (!isDragging || !img) return;
+  e.preventDefault();
+  const touch = e.touches[0];
+  const rect = canvas.getBoundingClientRect();
+  imgX = touch.clientX - rect.left - offsetX;
+  imgY = touch.clientY - rect.top - offsetY;
+  draw();
+}, { passive: false });
+
+canvas.addEventListener('touchend', function(e) {
+  isDragging = false;
+});
+
+canvas.addEventListener('touchcancel', function(e) {
+  isDragging = false;
+});
+
+
 // Zoom gambar dengan scroll
 canvas.addEventListener('wheel', function (e) {
   e.preventDefault();
