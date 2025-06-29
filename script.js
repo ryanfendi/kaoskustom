@@ -10,7 +10,7 @@ const ctx = canvas.getContext('2d');
 
 let img = null;
 let imgX = 125, imgY = 160;
-let imgWidth = 300, imgHeight = 390;
+let imgWidth = 150, imgHeight = 150;
 let scale = 1;
 let rotation = 0;
 let isDragging = false;
