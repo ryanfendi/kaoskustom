@@ -10,7 +10,7 @@ const ctx = canvas.getContext('2d');
 
 let img = null;
 let imgX = 125, imgY = 160;
-let imgWidth = 205, imgHeight = 300;
+let imgWidth = 171, imgHeight = 250;
 let scale = 1;
 let rotation = 0;
 let isDragging = false;
@@ -142,8 +142,8 @@ function rotate() {
 function reset() {
   imgX = 125;
   imgY = 160;
-  imgWidth = 205;
-  imgHeight = 300;
+  imgWidth = 171;
+  imgHeight = 250;
   scale = 1;
   rotation = 0;
   draw();
