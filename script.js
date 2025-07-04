@@ -29,7 +29,7 @@ shirtColorSelect.addEventListener('change', () => {
     red: 'https://i.imgur.com/L5UakIc.png',
     blue: 'https://i.imgur.com/1W1AQZe.png',
     green: 'https://i.imgur.com/eysCuVA.png',
-    yellow: 'https://i.imgur.com/YmUqLcI.png',
+    yellow: 'https://i.imgur.com/2GveUe5.png',
   };
 
   tshirtImg.src = colorMap[color];
